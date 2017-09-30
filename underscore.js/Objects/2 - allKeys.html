@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function allKeys(obj) {
+        let result = [];
+
+        for ( let key in obj ) {
+            result.push(key);
+        }
+
+        return result;
+    }
+
+    function Stooge(name) {
+        this.name = name;
+    }
+
+    Stooge.prototype.silly = true;
+
+    console.log( allKeys(new Stooge('Moe')) );
+</script>
+</body>
+</html>
