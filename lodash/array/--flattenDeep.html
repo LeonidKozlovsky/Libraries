@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Recursively flattens array.
+        Arguments
+
+            array (Array): The array to flatten.
+        Returns
+
+            (Array): Returns the new flattened array.
+        */
+        function flattenDeep(arr) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            var result = [];
+
+            return result.length === arr.length ? result : result.push(flattenDeep(arr));
+        } 
+        
+        console.log(flattenDeep([1, [2, [3, [4]], 5]]));
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Removes elements from array corresponding to indexes and returns an array of removed elements.
+
+        Arguments
+
+            array (Array): The array to modify.
+            [indexes] (...(number|number[])): The indexes of elements to remove.
+        Returns
+
+            (Array): Returns the new array of removed elements.
+         */
+        function pullAt(arr, indexes) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            var result = [];
+            for ( var j = 0 ; j < indexes.length ; j++ ) {
+                for ( var i = 0 ; i < arr.length ; i++ ) {
+                    if ( i === indexes[j] ) { 
+                        result.push(arr[i]);                   
+                    }
+                }
+            }
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                for ( var j = 0 ; j < result.length ; j++ ) {
+                    if ( arr[i] === result[j] ) {
+                        arr.splice(i, 1);
+                        --i;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        var array = ['a', 'b', 'c', 'd'];
+        var pulled = pullAt(array, [0, 3]);
+        
+        console.log(array);
+        // => ['a', 'c']
+        
+        console.log(pulled);
+        // => ['b', 'd']
+    </script>
+</body>
+</html>

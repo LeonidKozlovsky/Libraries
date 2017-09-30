@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    This method is like _.flatMap except that it recursively flattens the mapped results.
+
+    Arguments
+
+        collection (Array|Object): The collection to iterate over.
+        [iteratee=_.identity] (Function): The function invoked per iteration.
+    Returns
+
+        (Array): Returns the new flattened array.
+     */
+    function flatMapDeep(collection, iteratee) {
+        return map(collection, iteratee);
+    }
+
+    function duplicate(n) {
+        return [[[n, n]]];
+    }
+
+    console.log(flatMapDeep([1, 2], duplicate));
+    // => [1, 1, 2, 2]
+</script>
+</body>
+</html>

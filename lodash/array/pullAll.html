@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        This method is like _.pull except that it accepts an array of values to remove.
+
+        Arguments
+
+            array (Array): The array to modify.
+            values (Array): The values to remove.
+        Returns
+
+            (Array): Returns array.
+         */
+        function pullAll(arr, values) {
+            if (!arr.length || !values.length) {
+                return -1;
+            }
+
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                for ( var j = 0 ; j < values.length ; j++ ) {
+                    if ( arr[i] === values[j] ) {
+                        arr.splice(i, 1);
+                        --i;
+                    }
+                }
+            }
+            
+            return arr;
+        }
+
+        var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+
+        console.log(pullAll(array, ['a', 'c']));
+        /*
+        _.pullAll(array, ['a', 'c']);
+        console.log(array);
+        // => ['b', 'b']
+         */
+    </script>
+</body>
+</html>

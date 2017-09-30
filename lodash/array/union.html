@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates an array of unique values, in order, from all given arrays using SameValueZero for equality comparisons.
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+        Returns
+
+            (Array): Returns the new array of combined values.
+         */
+        function union(arr) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            if ( arguments.length > 1 ) { 
+                for ( var i = 1 ; i < arguments.length ; i++ ) {
+                    for ( var j = 0 ; j < arguments[i].length ; j++ ) {
+                        arr.push(arguments[i][j]);
+                    } 
+                }
+            }
+
+            for ( var i = 0 ; i < arr.length ; i++ ) { 
+                for ( var j = 0 ; j < arr.length ; j++ ) {
+                    if ( arr[i] === arr[j] && i !== j ) {
+                        arr.splice(j, 1);
+                    }
+                }
+                
+            }
+
+            return arr;
+        }
+        
+        console.log(union([1, 1, 2, 3, 1]));
+        console.log(union([1, 1, 2, 3, 1], [4, 6, 5, 1, 6, 5]));
+        console.log(union([1, 1, 2, 3, 1], [2, 4, 5, -1, 1, -1], [-1, 0]));
+        /*
+        _.union([2], [1, 2]);
+        // => [2, 1]
+         */
+    </script>
+</body>
+</html>

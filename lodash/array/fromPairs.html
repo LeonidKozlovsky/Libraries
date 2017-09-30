@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        The inverse of _.toPairs; this method returns an object composed from key-value pairs.
+
+        Arguments
+
+            pairs (Array): The key-value pairs.
+        Returns
+
+            (Object): Returns the new object.
+         */
+        function fromPairs(arr) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            var obj = {};
+
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                if ( arr[i].length !== 2 ) {
+                    return -1;
+                }
+
+                var key = arr[i][0];
+                obj[key] = arr[i][1];
+            }
+            return obj;
+        }
+
+        console.log(fromPairs([['a', 1], ['b', 2]]));
+        /*
+        _.fromPairs([['a', 1], ['b', 2]]);
+    // => { 'a': 1, 'b': 2 }
+         */
+    </script>
+</body>
+</html>

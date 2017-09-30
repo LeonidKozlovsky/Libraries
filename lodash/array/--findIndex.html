@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        This method is like _.find except that it returns the index of the first element predicate returns truthy for instead of the element itself.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+            [fromIndex=0] (number): The index to search from.
+        Returns
+
+            (number): Returns the index of the found element, else -1.
+         */
+        function findIndex(arr, predicate, fromIndex) {
+            var index = -1;
+
+            if ( arr.length < 1 ) {
+                return 0;
+            } 
+
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                for ( var key in arr[i] ) {
+                    if ( arr[i][key] === arr[i][predicate] || key === predicate ) {
+                        index = i;
+                    }
+                }
+            } 
+
+            return index;
+        }
+
+        var users = [
+            { 'user': 'barney',  'active': false },
+            { 'user': 'fred',    'active': false },
+            { 'user': 'pebbles', 'active': true }
+        ];
+
+        console.log(findIndex(users, function(o) { return o.user == 'barney'; }));
+        console.log(findIndex(users, { 'user': 'fred', 'active': false }));
+        console.log(findIndex(users, ['active', false]));
+        console.log(findIndex(users, 'active'));
+        /*
+        _.findIndex(users, function(o) { return o.user == 'barney'; });
+        // => 0
+
+        // The `_.matches` iteratee shorthand.
+        _.findIndex(users, { 'user': 'fred', 'active': false });
+        // => 1
+
+        // The `_.matchesProperty` iteratee shorthand.
+        _.findIndex(users, ['active', false]);
+        // => 0
+
+        // The `_.property` iteratee shorthand.
+        _.findIndex(users, 'active');
+        // => 2
+         */
+    </script>
+</body>
+</html>

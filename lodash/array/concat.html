@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates a new array concatenating array with any additional arrays and/or values.
+        Arguments
+
+            array (Array): The array to concatenate.
+            [values] (...*): The values to concatenate.
+        Returns
+
+            (Array): Returns the new concatenated array.
+         */
+        function concat() {
+            var result = [];
+            for ( var i = 0 ; i < arguments.length ; i++ ) {
+                for ( var j = 0 ; j < arguments[i].length ; j++ ) {
+                    result.push(arguments[i][j]);
+                }
+            } 
+            return result;
+        }
+
+        var array = [1, 5 , 7];
+        var otherArray = concat(array, 2, [3], [[4]]);
+        console.log(otherArray);
+        console.log(array);
+        /*
+            var array = [1];
+            var other = _.concat(array, 2, [3], [[4]]);
+
+            console.log(other);
+            // => [1, 2, 3, [4]]
+
+            console.log(array);
+            // => [1]
+         */
+    </script>
+</body>
+</html>

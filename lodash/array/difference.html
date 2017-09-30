@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates an array of array values not included in the other given arrays using SameValueZero for equality comparisons.
+        The order and references of result values are determined by the first array.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [values] (...Array): The values to exclude.
+        Returns
+
+            (Array): Returns the new array of filtered values.
+         */
+        function difference(arr) {
+            var result = [];
+            var difRes = false;
+            for ( var k = 0 ; k < arr.length ; k++ ) {
+                for ( var i = 1 ; i < arguments.length ; i++ ) {
+                    for ( var j = 0 ; j < arguments[i].length ; j++ ) {
+                        if ( arr[k] === arguments[i][j] ) {
+                            difRes = true;
+                        }
+                    }
+                }
+                if (!difRes) {
+                    result.push(arr[k]);
+                }
+                difRes = false;
+            }   
+            return result;
+        }
+
+        console.log( difference([2, 1, 4], [2, 3, 'true'], [5]) );
+        /*
+            _.difference([2, 1], [2, 3]);
+            // => [1]
+         */
+    </script>
+</body>
+</html>

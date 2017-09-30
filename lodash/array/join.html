@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Converts all elements in array into a string separated by separator.
+
+        Arguments
+
+            array (Array): The array to convert.
+            [separator=','] (string): The element separator.
+        Returns
+
+            (string): Returns the joined string.
+         */
+        function join(arr, separator) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            if (!separator) {
+                separator = ',';
+            }
+
+            var str = '';
+
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                str += arr[i] + '';
+                if ( i < arr.length - 1 ) {
+                    str += separator;
+                }
+            }
+
+            return str;
+        }
+
+        console.log(join(['a', 'b', 'c'], '~'));
+        /*
+        _.join(['a', 'b', 'c'], '~');
+        // => 'a~b~c'
+         */
+    </script>
+</body>
+</html>

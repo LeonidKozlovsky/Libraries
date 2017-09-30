@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    Creates a flattened array of values by running each element in collection thru iteratee and flattening the mapped results.
+    The iteratee is invoked with three arguments: (value, index|key, collection).
+
+    Arguments
+
+        collection (Array|Object): The collection to iterate over.
+        [iteratee=_.identity] (Function): The function invoked per iteration.
+    Returns
+
+        (Array): Returns the new flattened array.
+     */
+     function flatMap(collection, iteratee) {
+         if (!collection.length) return 'Error: collection missing!';
+
+         var result = [];
+
+         for ( var i = 0 ; i < collection.length ; i++ ) {
+             collection[i] = iteratee(collection[i]);
+         }
+
+         for ( var i = 0 ; i < collection.length ; i++ ) {
+             if ( collection[i].length > 0 ) {
+                 for ( var j = 0 ; j < collection[i].length ; j++ ) {
+                     result.push(collection[i][j]);
+                 }
+             }
+         }
+
+         return result;
+     }
+
+     function duplicate(n) {
+         return [n, n];
+     }
+     console.log(flatMap([1, 2], duplicate));
+     // => [1, 1, 2, 2]
+</script>
+</body>
+</html>

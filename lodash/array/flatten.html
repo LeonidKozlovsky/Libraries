@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Flattens array a single level deep.
+        Arguments
+
+            array (Array): The array to flatten.
+        Returns
+
+            (Array): Returns the new flattened array.
+         */
+        function flatten(arr) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            var result = [];
+
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                if ( arr[i].length > 0 ) {
+                    for ( var j = 0 ; j < arr[i].length ; j++ ) {
+                        result.push(arr[i][j]);
+                    }
+                } else {
+                    result.push(arr[i]);
+                }
+            }
+
+            return result;
+        }
+
+        console.log(flatten([1, [2, [3, [4]], 5]]));
+        /*
+        _.flatten([1, [2, [3, [4]], 5]]);
+        // => [1, 2, [3, [4]], 5]
+         */
+    </script>
+</body>
+</html>

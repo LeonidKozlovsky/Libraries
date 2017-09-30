@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    This method is like _.find except that it iterates over elements of collection from right to left.
+    Arguments
+
+        collection (Array|Object): The collection to inspect.
+        [predicate=_.identity] (Function): The function invoked per iteration.
+        [fromIndex=collection.length-1] (number): The index to search from.
+    Returns
+
+        (*): Returns the matched element, else undefined.
+     */
+    function findLast(collection, iteratee, fromIndex) {
+        if (!collection.length) return 'Error: collection missing';
+
+        var res;
+
+        for ( var i = 0 ; i < collection.length ; i++ ) {
+            if (iteratee(collection[i])) res = collection[i];
+        }
+
+        return res;
+    }
+
+    console.log(findLast([1, 2, 3, 4], function(n) { return n % 2 == 1; }));
+    // => 3
+</script>
+</body>
+</html>

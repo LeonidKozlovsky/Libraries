@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates a slice of array from start up to, but not including, end.
+
+        Arguments
+
+            array (Array): The array to slice.
+            [start=0] (number): The start position.
+            [end=array.length] (number): The end position.
+        Returns
+
+            (Array): Returns the slice of array.
+         */
+        function slice(arr, start, end) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            start = start || 0;
+            end = end || arr.length; 
+
+            var result = [];
+
+            for ( var i = start ; i < end ; i++ ) {
+                result.push(arr[i]);
+            }
+
+            return result;
+        }
+
+        var array = [0, 1, 2, 3, 4];
+        
+        console.log(slice(array, 1, 4));
+</body>
+</html>

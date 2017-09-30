@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Removes all given values from array using SameValueZero for equality comparisons.
+
+        Arguments
+
+            array (Array): The array to modify.
+            [values] (...*): The values to remove.
+        Returns
+
+            (Array): Returns array.
+         */
+        function pull(arr) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                for ( var j = 1 ; j < arguments.length ; j++ ) {
+                    if ( arr[i] === arguments[j] ) {
+                        arr.splice(i, 1);
+                        --i;
+                    }
+                }
+            }
+
+            return arr;
+        }
+
+        var array = ['a', 'b', 'c', 'a', 'b', 'c', 'd'];
+ 
+        console.log(pull(array, 'a', 'c', 'b'));
+        /*
+        _.pull(array, 'a', 'c');
+        console.log(array);
+        // => ['b', 'b']
+         */
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Uses a binary search to determine the lowest index at which value should be inserted into array in order to maintain its sort order.
+
+        Arguments
+
+            array (Array): The sorted array to inspect.
+            value (*): The value to evaluate.
+        Returns
+
+            (number): Returns the index at which value should be inserted into array.
+         */
+        function sortedIndex(arr, value) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            value = value || 0;
+
+            var index = arr.length;
+
+            for ( var i = 0 ; i < arr.length ; i++ ) {
+                if ( arr[i] > value ) {
+                    index--;
+                }
+            }
+            
+            return index;
+        }
+
+        console.log(sortedIndex([30, 50], 50));
+        /*
+        _.sortedIndex([30, 50], 40);
+        // => 1
+         */
+    </script>
+</body>
+</html>

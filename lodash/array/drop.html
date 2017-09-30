@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates a slice of array with n elements dropped from the beginning.
+
+        Arguments
+
+            array (Array): The array to query.
+            [n=1] (number): The number of elements to drop.
+        Returns
+
+            (Array): Returns the slice of array.
+         */
+        function drop(arr, num) {
+            if ( num === undefined) {
+                num = 1;
+            }
+
+            arr.splice(0, num);
+            return arr;
+        }
+
+        console.log("first " + drop([1, 2, 3]));
+        console.log("second " + drop([1, 2, 3], 2));
+        console.log("third "+ drop([1, 2, 3], 5));
+        console.log("fourth " + drop([1, 2, 3], 0));
+        /*
+            _.drop([1, 2, 3]);
+            // => [2, 3]
+
+            _.drop([1, 2, 3], 2);
+            // => [3]
+
+            _.drop([1, 2, 3], 5);
+            // => []
+
+            _.drop([1, 2, 3], 0);
+            // => [1, 2, 3]
+         */
+    </script>
+</body>
+</html>

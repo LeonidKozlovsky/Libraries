@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates a slice of array with n elements taken from the beginning.
+
+        Arguments
+
+            array (Array): The array to query.
+            [n=1] (number): The number of elements to take.
+        Returns
+
+            (Array): Returns the slice of array.
+         */
+        function take(arr, num) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            if ( num === 0 ) {
+                return [];
+            }
+
+            num = num || 1;
+
+            if ( num > arr.length ) {
+                num = arr.length;
+            }
+
+            var result = [];
+
+            for ( var i = 0 ; i < num ; i++) {
+                result.push(arr[i]);
+            }
+
+            return result;
+        }
+
+        console.log(take([1, 2, 3]));
+        console.log(take([1, 2, 3], 2));
+        console.log(take([1, 2, 3], 5)); 
+        console.log(take([1, 2, 3], 0));
+        /*
+        _.take([1, 2, 3]);
+        // => [1]
+
+        _.take([1, 2, 3], 2);
+        // => [1, 2]
+
+        _.take([1, 2, 3], 5);
+        // => [1, 2, 3]
+
+        _.take([1, 2, 3], 0);
+        // => []
+         */
+    </script>
+</body>
+</html>

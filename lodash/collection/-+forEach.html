@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    Iterates over elements of collection and invokes iteratee for each element.
+    The iteratee is invoked with three arguments: (value, index|key, collection).
+    Iteratee functions may exit iteration early by explicitly returning false.
+    Arguments
+
+        collection (Array|Object): The collection to iterate over.
+        [iteratee=_.identity] (Function): The function invoked per iteration.
+    Returns
+
+        (*): Returns collection.
+     */
+    function forEach(collection, iteratee) {
+        for ( var key in collection ) {
+            iteratee(collection[key]);
+        }
+    }
+
+    forEach([1, 2], function(value) {
+        console.log(value);
+    });
+    // => Logs `1` then `2`.
+
+    forEach({ 'a': 1, 'b': 2 }, function(value, key) {
+        console.log(key);
+    });
+    // => Logs 'a' then 'b' (iteration order is not guaranteed).
+</script>
+</body>
+</html>

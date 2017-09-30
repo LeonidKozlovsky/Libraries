@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates a slice of array with n elements dropped from the end.
+
+        Arguments
+
+            array (Array): The array to query.
+            [n=1] (number): The number of elements to drop.
+        Returns
+
+            (Array): Returns the slice of array.
+         */
+        function dropRight(arr, num) {
+            if ( arguments[1] === undefined) {
+                num = 1;
+            }
+            arr.reverse();
+            arr.splice(0, num);
+            arr.reverse();
+            return arr;
+        }
+
+        console.log("first " + dropRight([1, 2, 3]));
+        console.log("second " + dropRight([1, 2, 3], 2));
+        console.log("third "+ dropRight([1, 2, 3], 5));
+        console.log("fourth " + dropRight([1, 2, 3], 0));
+        /*
+        _.dropRight([1, 2, 3]);
+        // => [1, 2]
+
+        _.dropRight([1, 2, 3], 2);
+        // => [1]
+
+        _.dropRight([1, 2, 3], 5);
+        // => []
+
+        _.dropRight([1, 2, 3], 0);
+        // => [1, 2, 3]
+         */
+    </script>
+</body>
+</html>

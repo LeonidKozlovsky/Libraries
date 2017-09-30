@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Creates an array of unique values that are included in all given arrays using SameValueZero for equality comparisons.
+        The order and references of result values are determined by the first array.
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+        Returns
+
+            (Array): Returns the new array of intersecting values.
+         */
+        function intersection(arr) {
+            var result = [];
+            var difRes = false;
+            var b = 0;
+            for ( var k = 0 ; k < arr.length ; k++ ) {
+                for ( var i = 1 ; i < arguments.length ; i++ ) {
+                    for ( var j = 0 ; j < arguments[i].length ; j++ ) {
+                        if ( arr[k] === arguments[i][j] ) {
+                            difRes = true;
+                        }
+                    }
+                }
+                if (difRes) {
+                    result.push(arr[k]);
+                }
+                difRes = false;
+            }   
+            return result;
+        }
+        console.log(intersection([2, 1], [2, 3]));
+        /*
+            _.intersection([2, 1], [2, 3]);
+            // => [2]
+         */
+    </script>
+</body>
+</html>

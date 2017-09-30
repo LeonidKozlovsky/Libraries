@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Gets the element at index n of array. If n is negative, the nth element from the end is returned.
+
+        Arguments
+
+            array (Array): The array to query.
+            [n=0] (number): The index of the element to return.
+        Returns
+
+            (*): Returns the nth element of array.
+         */
+        function nth(arr, num) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            num = num || 0;
+
+            return num < 0 ? arr[arr.length + num] : arr[num];
+        }
+
+        var array = ['a', 'b', 'c', 'd'];
+
+        console.log(nth(array, 1));
+        console.log(nth(array, -4));
+        /*
+        var array = ['a', 'b', 'c', 'd'];
+
+        _.nth(array, 1);
+        // => 'b'
+
+        _.nth(array, -2);
+        // => 'c';
+         */
+    </script>
+</body>
+</html>

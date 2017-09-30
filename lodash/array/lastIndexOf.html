@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        This method is like _.indexOf except that it iterates over elements of array from right to left.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            value (*): The value to search for.
+            [fromIndex=array.length-1] (number): The index to search from.
+        Returns
+
+            (number): Returns the index of the matched value, else -1.
+         */
+        function lastIndexOf(arr, value, indexOf) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            indexOf = indexOf || arr.length - 1;
+
+            for ( var i = indexOf ; i >= 0 ; i-- ) {
+                if ( arr[i] === value ) {
+                    return i;
+                }
+            }
+        }
+
+        console.log(lastIndexOf([1, 2, 1, 2], 2));
+        console.log(lastIndexOf([1, 2, 1, 2], 2, 2));
+        /*
+        _.lastIndexOf([1, 2, 1, 2], 2);
+        // => 3
+
+        // Search from the `fromIndex`.
+        _.lastIndexOf([1, 2, 1, 2], 2, 2);
+        // => 1
+         */
+    </script>
+</body>
+</html>

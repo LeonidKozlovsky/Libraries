@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Gets all but the last element of array.
+
+        Arguments
+
+            array (Array): The array to query.
+        Returns
+
+            (Array): Returns the slice of array.
+         */
+        function initial(arr) {
+            if (!arr.length) {
+                return -1;
+            }
+
+            arr.splice(arr.length - 1, 1);
+            return arr;
+        }
+
+        console.log(initial([1, 2, 3]));
+        /*
+        _.initial([1, 2, 3]);
+        // => [1, 2]
+         */
+    </script>
+</body>
+</html>
